@@ -17,6 +17,8 @@ default: &default
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
 
+  kkkk
+
 development:
   <<: *default
   database: chat-space2_development
