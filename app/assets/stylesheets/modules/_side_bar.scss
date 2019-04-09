@@ -28,6 +28,7 @@
   .groups {
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
+    overflow: scroll;
     padding: 0 20px;
     .group {
       box-sizing: border-box;
