@@ -70,15 +70,14 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
- gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'carrierwave'
   gem 'devise'
   gem 'font-awesome-rails'
   gem 'haml-rails'
 
 group :production do
- gem 'unicorn'
+  gem 'unicorn', '5.4.1'
 end
 
 
