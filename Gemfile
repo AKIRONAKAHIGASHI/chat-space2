@@ -75,6 +75,7 @@ end
   gem 'erb2haml'
   gem 'mini_magick'
   gem 'faker'
+  gem 'fog-aws'
 
 group :production do
   gem 'unicorn'
