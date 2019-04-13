@@ -38,16 +38,6 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
-  gem 'pry-doc'    # methodを表示
-  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
-  gem 'pry-stack_explorer' # スタックをたどれる
-  gem 'rspec-rails'
-  gem 'rails-controller-testing'
-  gem 'factory_bot_rails'
-  gem 'erb2haml'
-  gem 'mini_magick'
-  gem 'faker'
 
   gem 'capistrano'
   gem 'capistrano-rbenv'
@@ -75,6 +65,16 @@ end
   gem 'devise'
   gem 'font-awesome-rails'
   gem 'haml-rails'
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer' # スタックをたどれる
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'erb2haml'
+  gem 'mini_magick'
+  gem 'faker'
 
 group :production do
   gem 'unicorn'
