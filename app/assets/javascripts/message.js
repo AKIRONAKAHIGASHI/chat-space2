@@ -6,8 +6,8 @@ $(document).on('turbolinks:load', function() {
       addImage = `<img src="${message.image.url}" class="lower-message__image">`;
     }
     var html = `
-       <div class="message" data-message-id="${message.id}">
-         <div class="upper-message" data-message-id="${message.id}">
+       <div class="message" data-messageId="${message.id}" data-groupId="${message.group_id}">
+         <div class="upper-message" data-messageId="${message.id}">
            <div class="upper-message__user-name">${message.name}</div>
            <div class="upper-message__date">${message.date}</div>
          </div>
@@ -38,8 +38,9 @@ $(document).on('turbolinks:load', function() {
       console.log(html);
       $('.messages').append(html);
       $('.form__message').val('');
-        var speed = 500;
-        $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, speed, 'swing');
+      var speed = 500;
+      $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, speed, 'swing');
+      // $('.new-message')[0].reset();
     })
     .fail(function(message) {
       alert('メッセージが未入力です');
@@ -47,40 +48,28 @@ $(document).on('turbolinks:load', function() {
     return false;
   })
 
-  $(function() {
-    $(function() {
-      if (location.pathname.match(/\/groups\/\d+\/messages/)) {//該当ページにいる時
-        setInterval(update, 5000);
-      }
-    });
-    function update(){
-      if($('.chat__contents__content')[0]){//要素がある時
-        var message_id = $('.chat__contents__content:last').data('message-id'); //data-message-id属性の値を取得
-        console.log(message_id);
-      } else {
-        return false
-      }
 
-      $.ajax({
-        url: location.href,
-        type: 'GET',
-        data: { id : message_id },
-        dataType: 'json'
+
+var reloadMessages = function() {
+    var last_message_id = $('.message').last().attr("data-messageId");
+    var groupId = $('.message').last().attr("data-groupId");
+    $.ajax( {
+      url: `/groups/`+ groupId +`/api/messages`,
+      type: 'GET',
+      data: {id: last_message_id},
+      dataType: 'json',
+    })
+    .done(function(data) {
+      $.each(data, function(i, message) {
+        var insertHTML = buildHTML(message);
+        $('.messages').append(insertHTML);
+        $(".messages").animate({scrollTop: $(".messages")[0].scrollHeight+100}, "fast");
       })
-      .done(function(data){
-        console.log(data.length)
-        if (data.length){
-          console.log(data.length)
-        $.each(data, function(i, data){
-          var html = buildHTML(data);
-          $('.chat__contents').append(html)
-        })
-      }
-      })
-      .fail(function(){
-        alert('自動更新に失敗しました')
-      })
-    }
-  })
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  }
+    setInterval(reloadMessages, 5000);
 
 });

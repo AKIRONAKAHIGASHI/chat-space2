@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def index
     #入力された値からあいまい検索 ログイン中のアカウントを除く
-    @users = User.where('name LIKE(?)', "%#{params[:name]}%").where.not(id: current_user.id)
+    @users = User.where('name LIKE(?)', "%#{params[:name]}%")
+
     respond_to do |format|
       format.html
       format.json
