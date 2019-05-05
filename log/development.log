@@ -29196,3 +29196,199 @@ Processing by MessagesController#create as JSON
 Completed 200 OK in 982ms (Views: 24.2ms | ActiveRecord: 4.4ms)
 
 
+Started GET "/groups/1/messages" for ::1 at 2019-05-04 16:34:18 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by MessagesController#index as HTML
+  Parameters: {"group_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 7 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 8 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 9 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered devise/shared/_side_bar.html.haml (64.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  Rendered collection of messages/_message.html.haml [62 times] (14.4ms)
+  Rendered messages/index.html.haml within layouts/application (161.5ms)
+  Rendered layouts/_notifications.html.haml (4.3ms)
+Completed 200 OK in 765ms (Views: 631.5ms | ActiveRecord: 21.6ms)
+
+
+Started POST "/groups/1/messages" for ::1 at 2019-05-04 16:34:34 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"53td0Z5Egs2SHlCNb6DVGO9XxbZCB89gxucO5FWZpsq7+rg74DNJGBbwnch5s+NQQiMRYIE2SX8Pj1ZsDDALog==", "message"=>{"content"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f977a0481e8 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14026-mmqvoa.JPG>, @original_filename="IMG_7343.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7343.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('', 'IMG_7343.JPG', 1, 1, '2019-05-04 07:34:34', '2019-05-04 07:34:34')[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (10.7ms)
+Completed 200 OK in 948ms (Views: 34.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/groups/1/messages" for ::1 at 2019-05-04 16:48:37 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by MessagesController#index as HTML
+  Parameters: {"group_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 7 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 8 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 9 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered devise/shared/_side_bar.html.haml (66.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 1[0m
+  [1m[36mMessage Load (1.2ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  Rendered collection of messages/_message.html.haml [63 times] (16.1ms)
+  Rendered messages/index.html.haml within layouts/application (179.9ms)
+  Rendered layouts/_notifications.html.haml (5.0ms)
+Completed 200 OK in 733ms (Views: 595.0ms | ActiveRecord: 22.5ms)
+
+
+Started POST "/groups/1/messages" for ::1 at 2019-05-04 16:48:49 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6f9pVD61h0meBTIplkhXT+CvKUCj4kbR6kMBRsvw6lC1foy+QMJMnBrr/2yAW2EHTdv9lmDTwM4jK1nOkllHOA==", "message"=>{"content"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9fb0e8f538 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14170-wwommt.JPG>, @original_filename="IMG_7276.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7276.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('', 'IMG_7276.JPG', 1, 1, '2019-05-04 07:48:50', '2019-05-04 07:48:50')[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (8.0ms)
+Completed 200 OK in 1001ms (Views: 31.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/groups/1/messages" for ::1 at 2019-05-04 16:49:26 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6f9pVD61h0meBTIplkhXT+CvKUCj4kbR6kMBRsvw6lC1foy+QMJMnBrr/2yAW2EHTdv9lmDTwM4jK1nOkllHOA==", "message"=>{"content"=>"nnnnn", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9fac1de658 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14170-be21y2.JPG>, @original_filename="IMG_7276.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7276.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('nnnnn', 'IMG_7276.JPG', 1, 1, '2019-05-04 07:49:27', '2019-05-04 07:49:27')[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.2ms)
+Completed 200 OK in 821ms (Views: 21.5ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/groups/1/messages" for ::1 at 2019-05-04 16:49:27 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6f9pVD61h0meBTIplkhXT+CvKUCj4kbR6kMBRsvw6lC1foy+QMJMnBrr/2yAW2EHTdv9lmDTwM4jK1nOkllHOA==", "message"=>{"content"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9fb28e8498 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14170-iu96s4.JPG>, @original_filename="IMG_7276.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7276.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('', 'IMG_7276.JPG', 1, 1, '2019-05-04 07:49:28', '2019-05-04 07:49:28')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.2ms)
+Completed 200 OK in 885ms (Views: 25.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/groups/1/messages" for ::1 at 2019-05-04 16:49:37 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6f9pVD61h0meBTIplkhXT+CvKUCj4kbR6kMBRsvw6lC1foy+QMJMnBrr/2yAW2EHTdv9lmDTwM4jK1nOkllHOA==", "message"=>{"content"=>"uuuuu", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9fb4110548 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14170-alvtwn.JPG>, @original_filename="IMG_7276.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7276.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('uuuuu', 'IMG_7276.JPG', 1, 1, '2019-05-04 07:49:38', '2019-05-04 07:49:38')[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.0ms)
+Completed 200 OK in 819ms (Views: 20.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/groups/1/messages" for ::1 at 2019-05-04 16:49:49 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"group_id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.9ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 1 LIMIT 1[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 7 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 8 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 9 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered devise/shared/_side_bar.html.haml (28.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 1[0m
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  Rendered collection of messages/_message.html.haml [67 times] (18.8ms)
+  Rendered messages/index.html.haml within layouts/application (79.7ms)
+  Rendered layouts/_notifications.html.haml (3.5ms)
+Completed 200 OK in 168ms (Views: 146.9ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/groups/2/messages" for ::1 at 2019-05-04 16:50:13 +0900
+Processing by MessagesController#index as HTML
+  Parameters: {"group_id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  Rendering messages/index.html.haml within layouts/application
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT `groups`.* FROM `groups` INNER JOIN `group_users` ON `groups`.`id` = `group_users`.`group_id` WHERE `group_users`.`user_id` = 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 1 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 3 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 4 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 7 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 8 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  `messages`.* FROM `messages` WHERE `messages`.`group_id` = 9 ORDER BY `messages`.`id` DESC LIMIT 1[0m
+  Rendered devise/shared/_side_bar.html.haml (26.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `group_users` ON `users`.`id` = `group_users`.`user_id` WHERE `group_users`.`group_id` = 2[0m
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT `messages`.* FROM `messages` WHERE `messages`.`group_id` = 2[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1[0m
+  Rendered collection of messages/_message.html.haml [6 times] (4.8ms)
+  Rendered messages/index.html.haml within layouts/application (53.5ms)
+  Rendered layouts/_notifications.html.haml (2.5ms)
+Completed 200 OK in 111ms (Views: 93.9ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/groups/2/messages" for ::1 at 2019-05-04 16:50:27 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EZFmlMMcTHHKtkQ38DVn5gwcKCwy4vKo11APe7rx44aKA1H5h3nJm6qhsWm/6FoPJaAuHZUKXkfRHA37PcPyLw==", "message"=>{"content"=>"nnnn", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9fb1c631a0 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14170-1hj4rmr.JPG>, @original_filename="IMG_7276 2.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7276 2.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('nnnn', 'IMG_7276_2.JPG', 2, 1, '2019-05-04 07:50:28', '2019-05-04 07:50:28')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (2.1ms)
+Completed 200 OK in 850ms (Views: 31.0ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/groups/2/messages" for ::1 at 2019-05-04 16:50:36 +0900
+Processing by MessagesController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EZFmlMMcTHHKtkQ38DVn5gwcKCwy4vKo11APe7rx44aKA1H5h3nJm6qhsWm/6FoPJaAuHZUKXkfRHA37PcPyLw==", "message"=>{"content"=>"kkk", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9fb4c512b8 @tempfile=#<Tempfile:/var/folders/4n/l4lrxq5n3wl8b4p5sgt9158w0000gn/T/RackMultipart20190504-14170-s39zck.JPG>, @original_filename="IMG_7276 2.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"message[image]\"; filename=\"IMG_7276 2.JPG\"\r\nContent-Type: image/jpeg\r\n">}, "group_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT  `groups`.* FROM `groups` WHERE `groups`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `messages` (`content`, `image`, `group_id`, `user_id`, `created_at`, `updated_at`) VALUES ('kkk', 'IMG_7276_2.JPG', 2, 1, '2019-05-04 07:50:37', '2019-05-04 07:50:37')[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering messages/create.json.jbuilder
+  Rendered messages/create.json.jbuilder (1.5ms)
+Completed 200 OK in 877ms (Views: 23.5ms | ActiveRecord: 3.5ms)
+
+
