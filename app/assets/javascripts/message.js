@@ -38,9 +38,11 @@ $(document).on('turbolinks:load', function() {
       console.log(html);
       $('.messages').append(html);
       $('.form__message').val('');
+
       var speed = 500;
+      // $(".form__submit").removeAttr('data-disable-with');
       $(".messages").animate({scrollTop: $('.messages')[0].scrollHeight}, speed, 'swing');
-      // $('.new-message')[0].reset();
+      $(".new_message")[0].reset();
     })
     .fail(function(message) {
       alert('メッセージが未入力です');
