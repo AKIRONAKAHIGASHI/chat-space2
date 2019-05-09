@@ -19,9 +19,10 @@
       = render partial: 'message', collection: @messages
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-        .form__mask
-          = f.label :image, class: 'form__mask__image' do
-            = fa_icon 'image', class: 'icon'
-            = f.file_field :image, class: 'hidden'
+        .input-box
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'image', class: 'icon'
+              = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
